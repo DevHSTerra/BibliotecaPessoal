@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1006255797552",
+    "firebase_url": "https://de-fevereiro-default-rtdb.firebaseio.com",
+    "project_id": "de-fevereiro",
+    "storage_bucket": "de-fevereiro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006255797552:android:00050e16a85a9f665b84f5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006255797552-6ab1uolhca4e1v897r7mrmungs18lqgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO8M6uPNKEl74m_kxjbmsoUdZUrN6rY7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006255797552-6ab1uolhca4e1v897r7mrmungs18lqgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

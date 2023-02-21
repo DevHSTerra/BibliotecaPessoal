@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1006255797552-c6t17sj435r1jfb1nvngtsd7u4q55ncu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1006255797552-c6t17sj435r1jfb1nvngtsd7u4q55ncu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBl4thUtV-w3b4wUPA6WYXpJ_ctIPMQOg0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1006255797552</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterApplicationApp</string>
+	<key>PROJECT_ID</key>
+	<string>de-fevereiro</string>
+	<key>STORAGE_BUCKET</key>
+	<string>de-fevereiro.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1006255797552:ios:23d464bca37ce3f55b84f5</string>
+	<key>DATABASE_URL</key>
+	<string>https://de-fevereiro-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
