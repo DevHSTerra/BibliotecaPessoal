@@ -27,12 +27,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(100, 50, 100, 50),
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: Center(
                   child: Icon(
-                    Icons.task_outlined,
-                    color: Colors.blueAccent.shade700,
-                    size: 150.0,
+                    Icons.book_rounded,
+                    color: Color.fromARGB(255, 32, 3, 70),
+                    size: 80.0,
                   ),
                 ),
               ),
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                       "Esqueceu a senha?",
                       style: GoogleFonts.roboto(
                         fontSize: 16,
-                        color: Colors.blueAccent.shade700,
+                        color: Color.fromARGB(255, 32, 3, 70),
                       ),
                     ),
                     onPressed: () {
@@ -56,11 +56,11 @@ class _LoginPageState extends State<LoginPage> {
                           title: Text(
                             'Informe seu e-mail',
                             style: GoogleFonts.roboto(
-                              fontSize: 24,
-                              color: Colors.blueGrey.shade700,
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 32, 3, 70),
                             ),
                           ),
-                          titlePadding: EdgeInsets.all(20),
+                          titlePadding: EdgeInsets.all(10),
                           content: Container(
                             width: 350,
                             height: 80,
@@ -71,27 +71,27 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           backgroundColor: Colors.blueGrey.shade50,
-                          actionsPadding: EdgeInsets.fromLTRB(0, 0, 20, 20),
+                          actionsPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                           actions: [
                             TextButton(
                               style: TextButton.styleFrom(
-                                minimumSize: Size(120, 50),
+                                minimumSize: Size(100, 40),
                               ),
                               onPressed: () {
                                 Navigator.pop(context);
                               },
                               child: Text(
-                                'cancelar',
+                                'Cancelar',
                                 style: GoogleFonts.roboto(
-                                  fontSize: 20,
-                                  color: Colors.blueAccent.shade700,
+                                  fontSize: 16,
+                                  color: Color.fromARGB(255, 32, 3, 70),
                                 ),
                               ),
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: Colors.blueAccent.shade700,
-                                minimumSize: Size(120, 50),
+                                backgroundColor: Color.fromARGB(255, 32, 3, 70),
+                                minimumSize: Size(100, 40),
                               ),
                               onPressed: () async {
                                 if (txtEmail.text.isNotEmpty) {
@@ -107,9 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.pop(context);
                               },
                               child: Text(
-                                'enviar',
+                                'Enviar',
                                 style: GoogleFonts.roboto(
-                                  fontSize: 20,
+                                  fontSize: 16,
                                   color: Colors.white,
                                 ),
                               ),
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               SizedBox(
-                height: 50,
+                height: 30,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                       .login(context, txtEmail.text, txtPassword.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent.shade700,
+                  backgroundColor: Color.fromARGB(255, 32, 3, 70),
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.9, 60),
                   shape: RoundedRectangleBorder(
@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 child: Text(
                   'Entrar',
-                  style: GoogleFonts.roboto(fontSize: 22),
+                  style: GoogleFonts.roboto(fontSize: 20),
                 ),
               ),
               SizedBox(
@@ -153,11 +153,11 @@ class _LoginPageState extends State<LoginPage> {
                       "Novo usuário?",
                       style: GoogleFonts.roboto(
                         fontSize: 16,
-                        color: Colors.blueAccent.shade700,
+                        color: Color.fromARGB(255, 32, 3, 70),
                       ),
                     ),
                     onPressed: () =>
-                        {Navigator.pushNamed(context, 'criar_conta')},
+                        {Navigator.pushNamed(context, 'create_account')},
                   ),
                 ],
               ),

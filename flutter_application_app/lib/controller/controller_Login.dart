@@ -7,9 +7,9 @@ import '../pages/support.dart';
 
 class LoginController {
 
-  void login(context, email, password) {
+  void login(context, email, senha) {
     FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password)
+        .signInWithEmailAndPassword(email: email, password: senha)
         .then((res) {
       success(context, 'Usuário autenticado com success.');
       Navigator.pushReplacementNamed(context, 'main');
@@ -22,7 +22,7 @@ class LoginController {
           error(context, 'Usuário não encontrado.');
           break;
         case 'wrong-password':
-          error(context, 'password incorreta.');
+          error(context, 'Senha incorreta.');
           break;
         default:
           error(context, e.code.toString());
@@ -36,9 +36,9 @@ class LoginController {
     );
   }
   
-  void createAccount(context, name, email, password) {
+  void createAccount(context, name, email, senha) {
     FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password)
+        .createUserWithEmailAndPassword(email: email, password: senha)
         .then((res) {
       //Armazenar o name no Firestore
       FirebaseFirestore.instance.collection('usuarios').add(

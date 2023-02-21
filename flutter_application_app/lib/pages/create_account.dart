@@ -28,7 +28,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(0, 60, 0, 60),
+                padding: EdgeInsets.fromLTRB(0, 40, 0, 40),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -36,8 +36,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       child: Text(
                         'Criar conta',
                         style: GoogleFonts.roboto(
-                          fontSize: 50,
-                          color: Colors.blueAccent.shade700,
+                          fontSize: 30,
+                          color: Color.fromARGB(255, 32, 3, 70),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -45,9 +45,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   ],
                 ),
               ),
-              fieldText('Nome', Icons.person, txtName),
+              fieldText('Nome'  , Icons.person, txtName),
               fieldText('E-mail', Icons.email, txtEmail),
-              fieldText('Senha', Icons.lock, txtPassword, password: true),
+              fieldText('Senha' , Icons.lock, txtPassword, password: true),
               SizedBox(
                 height: 30,
               ),
@@ -57,7 +57,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       context, txtName.text, txtEmail.text, txtPassword.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent.shade700,
+                  backgroundColor: Color.fromARGB(255, 32, 3, 70),
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.9, 60),
                   shape: RoundedRectangleBorder(
@@ -80,7 +80,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       "Cancelar",
                       style: GoogleFonts.roboto(
                         fontSize: 16,
-                        color: Colors.blueAccent.shade700,
+                        color: Color.fromARGB(255, 32, 3, 70),
                       ),
                     ),
                     onPressed: () => {Navigator.pop(context)},

@@ -7,7 +7,7 @@ fieldText(label, icon, variable, {password}) {
     child: TextField(
       controller: variable,
       obscureText: (password != null) ? true : false,
-      style: GoogleFonts.roboto(fontSize: 24),
+      style: GoogleFonts.roboto(fontSize: 16),
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon),
