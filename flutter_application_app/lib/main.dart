@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'pages/create_account.dart';
 import 'pages/login_page.dart';
+import 'pages/main_page.dart';
 
 Future<void> main() async {
   await Firebase.initializeApp(
@@ -20,7 +21,7 @@ Future<void> main() async {
       routes: {
         'login': (context) => LoginPage(),
         'create_account': (context) => CreateAccountPage(),
-        //'main': (context) => MainPage(),
+        'main': (context) => MainPage(),
       },
     ),
   );

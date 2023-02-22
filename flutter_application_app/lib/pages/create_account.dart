@@ -14,9 +14,11 @@ class CreateAccountPage extends StatefulWidget {
 }
 
 class _CreateAccountPageState extends State<CreateAccountPage> {
-  var txtName = TextEditingController();
+  var txtNome = TextEditingController();
   var txtEmail = TextEditingController();
-  var txtPassword = TextEditingController();
+  var txtSenha = TextEditingController();
+
+  var corPrincial = Color.fromARGB(255, 35, 2, 56);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(0, 40, 0, 40),
+                padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -36,8 +38,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       child: Text(
                         'Criar conta',
                         style: GoogleFonts.roboto(
-                          fontSize: 30,
-                          color: Color.fromARGB(255, 32, 3, 70),
+                          fontSize: 35,
+                          color: corPrincial,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -45,28 +47,28 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   ],
                 ),
               ),
-              fieldText('Nome'  , Icons.person, txtName),
-              fieldText('E-mail', Icons.email, txtEmail),
-              fieldText('Senha' , Icons.lock, txtPassword, password: true),
+              campoTexto('Nome', Icons.person, txtNome),
+              campoTexto('E-mail', Icons.email, txtEmail),
+              campoTexto('Senha', Icons.lock, txtSenha, senha: true),
               SizedBox(
                 height: 30,
               ),
               ElevatedButton(
                 onPressed: () {
-                  LoginController().createAccount(
-                      context, txtName.text, txtEmail.text, txtPassword.text);
+                  LoginController().criarConta(
+                      context, txtNome.text, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 32, 3, 70),
+                  backgroundColor: corPrincial,
                   minimumSize:
-                      Size(MediaQuery.of(context).size.width * 0.9, 60),
+                      Size(MediaQuery.of(context).size.width * 0.7, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
                 child: Text(
                   'Salvar',
-                  style: GoogleFonts.roboto(fontSize: 22),
+                  style: GoogleFonts.roboto(fontSize: 16),
                 ),
               ),
               SizedBox(
@@ -79,8 +81,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     child: Text(
                       "Cancelar",
                       style: GoogleFonts.roboto(
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 32, 3, 70),
+                        fontSize: 14,
+                        color: corPrincial,
                       ),
                     ),
                     onPressed: () => {Navigator.pop(context)},

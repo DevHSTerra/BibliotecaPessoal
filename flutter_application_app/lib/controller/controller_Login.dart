@@ -11,55 +11,55 @@ class LoginController {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: senha)
         .then((res) {
-      success(context, 'Usuário autenticado com success.');
+      sucesso(context, 'Usuário autenticado com sucesso.');
       Navigator.pushReplacementNamed(context, 'main');
     }).catchError((e) {
       switch (e.code) {
         case 'invalid-email':
-          error(context, 'O formato do email é inválido.');
+          erro(context, 'O formato do email é inválido.');
           break;
         case 'user-not-found':
-          error(context, 'Usuário não encontrado.');
+          erro(context, 'Usuário não encontrado.');
           break;
         case 'wrong-password':
-          error(context, 'Senha incorreta.');
+          erro(context, 'Senha incorreta.');
           break;
         default:
-          error(context, e.code.toString());
+          erro(context, e.code.toString());
       }
     });
   }
 
-  Future<void> forgotPassword(email) async {
+  Future<void> esqueceuSenha(email) async {
     await FirebaseAuth.instance.sendPasswordResetEmail(
       email: email,
     );
   }
-  
-  void createAccount(context, name, email, senha) {
+
+  void criarConta(context, nome, email, senha) {
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: senha)
         .then((res) {
-      //Armazenar o name no Firestore
+
       FirebaseFirestore.instance.collection('usuarios').add(
         {
           "uid": res.user!.uid.toString(),
-          "name": name,
+          "nome": nome,
         },
       );
 
-      success(context, 'Usuário criado com success.');
+      sucesso(context, 'Usuário criado com sucesso.');
       Navigator.pop(context);
     }).catchError((e) {
       switch (e.code) {
         case 'email-already-in-use':
-          error(context, 'O email já foi cadastrado.');
+          erro(context, 'O email já foi cadastrado.');
           break;
         case 'invalid-email':
-          error(context, 'O email é inválido.');
+          erro(context, 'O email é inválido.');
           break;
         default:
-          error(context, e.code.toString());
+          erro(context, e.code.toString());
       }
     });
   }
@@ -68,10 +68,7 @@ class LoginController {
     FirebaseAuth.instance.signOut();
   }
 
-  //
-  // RETORNAR USUÁRIO LOGADO
-  //
-  Future<String> returnUser() async {
+  Future<String> retornarUsuarioLogado() async {
     var uid = FirebaseAuth.instance.currentUser!.uid;
     var res;
     await FirebaseFirestore.instance
@@ -81,7 +78,7 @@ class LoginController {
         .then(
       (q) {
         if (q.docs.isNotEmpty) {
-          res = q.docs[0].data()['name'];
+          res = q.docs[0].data()['nome'];
         } else {
           res = "";
         }

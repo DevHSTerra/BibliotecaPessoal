@@ -15,11 +15,13 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var txtEmail = TextEditingController();
-  var txtPassword = TextEditingController();
+  var txtSenha = TextEditingController();
+  var corPrincial = Color.fromARGB(255, 35, 2, 56);
+
   @override
   Widget build(BuildContext context) {
     txtEmail.text = '';
-    txtPassword.text = '';
+    txtSenha.text = '';
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -27,17 +29,17 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                padding: EdgeInsets.fromLTRB(40, 40, 40, 40),
                 child: Center(
                   child: Icon(
-                    Icons.book_rounded,
-                    color: Color.fromARGB(255, 32, 3, 70),
-                    size: 80.0,
+                    Icons.book_sharp,
+                    color: corPrincial,
+                    size: 75.0,
                   ),
                 ),
               ),
-              fieldText('Email', Icons.email, txtEmail),
-              fieldText('Senha', Icons.lock, txtPassword, password: true),
+              campoTexto('Email', Icons.email, txtEmail),
+              campoTexto('Senha', Icons.lock, txtSenha, senha: true),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -45,8 +47,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       "Esqueceu a senha?",
                       style: GoogleFonts.roboto(
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 32, 3, 70),
+                        fontSize: 14,
+                        color: corPrincial,
                       ),
                     ),
                     onPressed: () {
@@ -56,26 +58,26 @@ class _LoginPageState extends State<LoginPage> {
                           title: Text(
                             'Informe seu e-mail',
                             style: GoogleFonts.roboto(
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 32, 3, 70),
+                              fontSize: 16,
+                              color: corPrincial,
                             ),
                           ),
-                          titlePadding: EdgeInsets.all(10),
+                          titlePadding: EdgeInsets.all(20),
                           content: Container(
                             width: 350,
                             height: 80,
                             child: Column(
                               children: [
-                                fieldText('E-mail', Icons.email, txtEmail),
+                                campoTexto('E-mail', Icons.email, txtEmail),
                               ],
                             ),
                           ),
                           backgroundColor: Colors.blueGrey.shade50,
-                          actionsPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          actionsPadding: EdgeInsets.fromLTRB(0, 0, 20, 20),
                           actions: [
                             TextButton(
                               style: TextButton.styleFrom(
-                                minimumSize: Size(100, 40),
+                                minimumSize: Size(100, 30),
                               ),
                               onPressed: () {
                                 Navigator.pop(context);
@@ -83,24 +85,24 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                 'Cancelar',
                                 style: GoogleFonts.roboto(
-                                  fontSize: 16,
-                                  color: Color.fromARGB(255, 32, 3, 70),
+                                  fontSize: 14,
+                                  color: corPrincial,
                                 ),
                               ),
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: Color.fromARGB(255, 32, 3, 70),
-                                minimumSize: Size(100, 40),
+                                backgroundColor: corPrincial,
+                                minimumSize: Size(100, 30),
                               ),
                               onPressed: () async {
                                 if (txtEmail.text.isNotEmpty) {
                                   LoginController()
-                                      .forgotPassword(txtEmail.text);
-                                  success(
-                                      context, 'E-mail enviado com success.');
+                                      .esqueceuSenha(txtEmail.text);
+                                  sucesso(
+                                      context, 'E-mail enviado com sucesso.');
                                 } else {
-                                  error(context,
+                                  erro(context,
                                       'Informe o e-mail para recuperar a senha.');
                                 }
 
@@ -109,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                 'Enviar',
                                 style: GoogleFonts.roboto(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   color: Colors.white,
                                 ),
                               ),
@@ -127,19 +129,19 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   LoginController()
-                      .login(context, txtEmail.text, txtPassword.text);
+                      .login(context, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 32, 3, 70),
+                  backgroundColor: corPrincial,
                   minimumSize:
-                      Size(MediaQuery.of(context).size.width * 0.9, 60),
+                      Size(MediaQuery.of(context).size.width * 0.7, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
                 child: Text(
                   'Entrar',
-                  style: GoogleFonts.roboto(fontSize: 20),
+                  style: GoogleFonts.roboto(fontSize: 16),
                 ),
               ),
               SizedBox(
@@ -152,8 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       "Novo usuário?",
                       style: GoogleFonts.roboto(
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 32, 3, 70),
+                        fontSize: 14,
+                        color: corPrincial,
                       ),
                     ),
                     onPressed: () =>
