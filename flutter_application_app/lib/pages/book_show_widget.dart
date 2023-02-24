@@ -2,19 +2,18 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/books_controller.dart';
 import 'support.dart';
 
-
 class BookShowWidget extends StatefulWidget {
-  final tarefas;
+  final livros;
   final cor;
   final icone;
 
-  const BookShowWidget(this.tarefas, this.cor, this.icone,
-      {Key? key})
+  const BookShowWidget(this.livros, this.cor, this.icone, {Key? key})
       : super(key: key);
 
   @override
@@ -29,7 +28,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
         color: Theme.of(context).colorScheme.background,
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: StreamBuilder<QuerySnapshot>(
-          stream: widget.tarefas.snapshots(),
+          stream: widget.livros.snapshots(),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
@@ -53,31 +52,30 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                         child: ListTile(
                           title: Text(
                             autor,
-                            style: GoogleFonts.roboto(fontSize: 22),
+                            style: GoogleFonts.roboto(fontSize: 16),
                           ),
                           subtitle: Text(
                             titulo,
-                            style: GoogleFonts.roboto(fontSize: 18),
+                            style: GoogleFonts.roboto(fontSize: 14),
                           ),
                           trailing: Visibility(
-                            
                             // Efetuar o Download
+                            // Download executado ao clicar no Icone
                             child: IconButton(
                               icon: Icon(widget.icone),
-                              onPressed: () {
-                                BooksController().atualizar(
-                                  dados.docs[index].id,
-                                  widget.status,
-                                );
-
-                                sucesso(
-                                  context,
-                                  'Download executado com sucesso.',
+                              onPressed: () async {
+                                //final String path = await getApplicationDocumentsDirectory().path;
+                                final taskId = await FlutterDownloader.enqueue(
+                                  url: item['LinkDownload'],
+                                  savedDir: '/storage/emulated/0/Download',
+                                  showNotification:
+                                      true, // show download progress in status bar (for Android)
+                                  openFileFromNotification:
+                                      true, // click on notification to open downloaded file (for Android)
                                 );
                               },
                             ),
                           ),
-
                         ),
                       );
                     },

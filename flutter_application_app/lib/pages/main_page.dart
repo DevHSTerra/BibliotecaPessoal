@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller_Login.dart';
-import 'book_show_widget.dart';
-
+import 'list_books.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -15,13 +14,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var livros;
   var corPrincial = Color.fromARGB(255, 35, 2, 56);
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +25,9 @@ class _MainPageState extends State<MainPage> {
           children: [
             Expanded(
               child: Text(
-                'Biblioteca 31 de fevereiro',
+                '31 de fevereiro',
                 style: GoogleFonts.kanit(
-                  fontSize: 30,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -44,9 +37,8 @@ class _MainPageState extends State<MainPage> {
               children: [
                 Icon(
                   Icons.account_box,
-                  size: 14,
+                  size: 20,
                 ),
-
                 FutureBuilder<String>(
                   future: LoginController().retornarUsuarioLogado(),
                   builder: (context, snapshot) {
@@ -92,14 +84,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-
-
-      body: BookShowWidget(
-              livros,
-              Colors.yellowAccent.shade100,
-              Icons.download_sharp,
-            ),
-
+      body: ListBooks(),
     );
   }
 }
