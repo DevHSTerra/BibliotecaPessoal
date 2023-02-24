@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller_Login.dart';
+import 'about_us.dart';
 import 'list_books.dart';
 
 class MainPage extends StatefulWidget {
@@ -20,9 +21,9 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 70,
-        title: Row(
-          children: [
+          backgroundColor: corPrincial,
+          toolbarHeight: 70,
+          title: Row(children: [
             Expanded(
               child: Text(
                 '31 de fevereiro',
@@ -32,13 +33,15 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ])),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.fromLTRB(15, 15, 15, 60),
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.account_box,
-                  size: 20,
-                ),
+                Icon(Icons.account_circle),
                 FutureBuilder<String>(
                   future: LoginController().retornarUsuarioLogado(),
                   builder: (context, snapshot) {
@@ -66,23 +69,33 @@ class _MainPageState extends State<MainPage> {
                 ),
               ],
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Logout"),
+                onTap: () {
+                  LoginController().logout();
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    'login',
+                    (Route<dynamic> route) => false,
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: ListTile(
+                leading: Icon(Icons.help_rounded),
+                title: Text("Sobre nós"),
+                onTap: () {
+                  AboutUs();
+                },
+              ),
+            ),
           ],
         ),
-        backgroundColor: corPrincial,
-        actions: [
-          IconButton(
-            tooltip: 'Sair',
-            onPressed: () {
-              LoginController().logout();
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                'login',
-                (Route<dynamic> route) => false,
-              );
-            },
-            icon: Icon(Icons.logout),
-          ),
-        ],
       ),
       body: ListBooks(),
     );

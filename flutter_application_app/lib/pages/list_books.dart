@@ -16,6 +16,7 @@ class ListBooks extends StatefulWidget {
 
 class _ListBooksState extends State<ListBooks> {
   var livros;
+  var corPrincial = Color.fromARGB(255, 227, 206, 240);
 
   @override
   void initState() {
@@ -25,17 +26,14 @@ class _ListBooksState extends State<ListBooks> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blueGrey.shade50,
-      child: Column(
-        children: [
-          BookShowWidget(
-            livros,
-            Colors.yellowAccent.shade100,
-            Icons.download_sharp,
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        BookShowWidget(
+          livros,
+          corPrincial,
+          Icons.download_sharp,
+        ),
+      ],
     );
   }
 }

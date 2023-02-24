@@ -25,8 +25,8 @@ class _BookShowWidgetState extends State<BookShowWidget> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Theme.of(context).colorScheme.background,
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        color: Color.fromRGBO(0, 0, 0, 1),
+        padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         child: StreamBuilder<QuerySnapshot>(
           stream: widget.livros.snapshots(),
           builder: (context, snapshot) {
@@ -50,19 +50,23 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                       return Card(
                         color: widget.cor,
                         child: ListTile(
-                          title: Text(
-                            autor,
-                            style: GoogleFonts.roboto(fontSize: 16),
-                          ),
+                          title: Text(autor,
+                              style: GoogleFonts.roboto(
+                                  fontSize: 16, fontWeight: FontWeight.bold)),
                           subtitle: Text(
                             titulo,
-                            style: GoogleFonts.roboto(fontSize: 14),
+                            style: GoogleFonts.roboto(
+                                fontSize: 14,
+                                color: Color.fromRGBO(0, 0, 0, 1)),
                           ),
                           trailing: Visibility(
                             // Efetuar o Download
                             // Download executado ao clicar no Icone
                             child: IconButton(
-                              icon: Icon(widget.icone),
+                              icon: Icon(
+                                widget.icone,
+                                color: Colors.black,
+                              ),
                               onPressed: () async {
                                 //final String path = await getApplicationDocumentsDirectory().path;
                                 final taskId = await FlutterDownloader.enqueue(
