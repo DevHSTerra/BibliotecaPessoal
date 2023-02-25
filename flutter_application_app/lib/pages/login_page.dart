@@ -16,7 +16,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
-  var corPrincial = Color.fromARGB(255, 35, 2, 56);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Center(
                   child: Icon(
                     Icons.book_sharp,
-                    color: corPrincial,
+                    color: Cores.corPrincipal,
                     size: 75.0,
                   ),
                 ),
@@ -48,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                       "Esqueceu a senha?",
                       style: GoogleFonts.roboto(
                         fontSize: 14,
-                        color: corPrincial,
+                        color: Cores.corPrincipal,
                       ),
                     ),
                     onPressed: () {
@@ -59,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                             'Informe seu e-mail',
                             style: GoogleFonts.roboto(
                               fontSize: 16,
-                              color: corPrincial,
+                              color: Cores.corPrincipal,
                             ),
                           ),
                           titlePadding: EdgeInsets.all(20),
@@ -72,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                               ],
                             ),
                           ),
-                          backgroundColor: Colors.blueGrey.shade50,
+                          backgroundColor: Cores.corDeFundo,
                           actionsPadding: EdgeInsets.fromLTRB(0, 0, 20, 20),
                           actions: [
                             TextButton(
@@ -86,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                                 'Cancelar',
                                 style: GoogleFonts.roboto(
                                   fontSize: 14,
-                                  color: corPrincial,
+                                  color: Cores.corDeFundo,
                                 ),
                               ),
                             ),
@@ -94,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
-                                backgroundColor: corPrincial,
+                                backgroundColor: Cores.corPrincipal,
                                 minimumSize: Size(100, 30),
                               ),
                               onPressed: () async {
@@ -134,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                       .login(context, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: corPrincial,
+                  backgroundColor: Cores.corPrincipal,
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.7, 50),
                   shape: RoundedRectangleBorder(
@@ -157,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                       "Novo usuário?",
                       style: GoogleFonts.roboto(
                         fontSize: 14,
-                        color: corPrincial,
+                        color: Cores.corPrincipal,
                       ),
                     ),
                     onPressed: () =>

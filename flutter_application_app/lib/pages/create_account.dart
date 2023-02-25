@@ -18,12 +18,11 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
 
-  var corPrincial = Color.fromARGB(255, 35, 2, 56);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
+      backgroundColor: Cores.corDeFundo,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -39,7 +38,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         'Criar conta',
                         style: GoogleFonts.roboto(
                           fontSize: 25,
-                          color: corPrincial,
+                          color: Cores.corPrincipal,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -59,7 +58,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       context, txtNome.text, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: corPrincial,
+                  backgroundColor: Cores.corPrincipal,
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.7, 50),
                   shape: RoundedRectangleBorder(
@@ -82,7 +81,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       "Cancelar",
                       style: GoogleFonts.roboto(
                         fontSize: 14,
-                        color: corPrincial,
+                        color: Cores.corPrincipal,
                       ),
                     ),
                     onPressed: () => {Navigator.pop(context)},

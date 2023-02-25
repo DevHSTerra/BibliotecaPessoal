@@ -16,7 +16,6 @@ class ListBooks extends StatefulWidget {
 
 class _ListBooksState extends State<ListBooks> {
   var livros;
-  var corPrincial = Color.fromARGB(255, 227, 206, 240);
 
   @override
   void initState() {
@@ -30,7 +29,7 @@ class _ListBooksState extends State<ListBooks> {
       children: [
         BookShowWidget(
           livros,
-          corPrincial,
+          Cores.corDoCard,
           Icons.download_sharp,
         ),
       ],

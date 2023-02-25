@@ -25,7 +25,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Color.fromRGBO(0, 0, 0, 1),
+        color: Cores.corDaFonteSimples,
         padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         child: StreamBuilder<QuerySnapshot>(
           stream: widget.livros.snapshots(),
@@ -57,7 +57,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                             titulo,
                             style: GoogleFonts.roboto(
                                 fontSize: 14,
-                                color: Color.fromRGBO(0, 0, 0, 1)),
+                                color: Cores.corDaFonteSimples),
                           ),
                           trailing: Visibility(
                             // Efetuar o Download
@@ -65,7 +65,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                             child: IconButton(
                               icon: Icon(
                                 widget.icone,
-                                color: Colors.black,
+                                color: Cores.corDoIcone,
                               ),
                               onPressed: () async {
                                 //final String path = await getApplicationDocumentsDirectory().path;

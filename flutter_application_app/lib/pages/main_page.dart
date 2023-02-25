@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller_Login.dart';
+import '../pages/support.dart';
 import 'list_books.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,13 +15,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var corPrincial = Color.fromARGB(255, 35, 2, 56);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: corPrincial,
+          backgroundColor: Cores.corPrincipal,
           toolbarHeight: 70,
           title: Row(children: [
             Expanded(

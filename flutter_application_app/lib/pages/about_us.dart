@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller_Login.dart';
+import 'support.dart';
 
 class AboutUs extends StatefulWidget {
   const AboutUs({Key? key}) : super(key: key);
@@ -13,7 +14,6 @@ class AboutUs extends StatefulWidget {
 }
 
 class _AboutUsState extends State<AboutUs> {
-  var corPrincial = Color.fromARGB(255, 35, 2, 56);
 
   var tituloSobreNos = 'O propósito do software Shared Library.';
   var primeiroParagrafo =
@@ -24,12 +24,12 @@ class _AboutUsState extends State<AboutUs> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: corPrincial,
+          backgroundColor: Cores.corPrincipal,
           centerTitle: true,
           title: Text(
             "Shared Library",
             style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                fontSize: 24, fontWeight: FontWeight.bold, color: Cores.corDaFonteDoTitulo),
           ),
           actions: [
             Padding(
@@ -64,7 +64,7 @@ class _AboutUsState extends State<AboutUs> {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black),
+                          color: Cores.corDaFonteSimples),
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       textDirection: TextDirection.ltr,
@@ -85,7 +85,7 @@ class _AboutUsState extends State<AboutUs> {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                          color: Colors.black),
+                          color: Cores.corDaFonteSimples),
                       maxLines: 7,
                       overflow: TextOverflow.ellipsis,
                       textDirection: TextDirection.ltr,
@@ -106,7 +106,7 @@ class _AboutUsState extends State<AboutUs> {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                          color: Colors.black),
+                          color: Cores.corDaFonteSimples),
                       maxLines: 7,
                       overflow: TextOverflow.ellipsis,
                       textDirection: TextDirection.ltr,

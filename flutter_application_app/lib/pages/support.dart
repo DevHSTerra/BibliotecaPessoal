@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/cupertino.dart';
 
 campoTexto(rotulo, icone, variavel, {senha}) {
   return Padding(
@@ -46,11 +47,18 @@ void sucesso(context, String msg) {
   );
 }
 
-/*
-void cores() {
-  var corPrincipal = const Color.fromARGB(255, 35, 2, 56);
-  var corDeFundo = const Color.fromARGB(255, 228, 228, 228);
-  var corDoCard = const Color.fromARGB(255, 227, 206, 240);
-  var corDaFonte = const Color.fromARGB(255, 0, 0, 0);
+// Search Bar
+
+abstract class Cores {
+  static const Color corPrincipal = Color.fromARGB(255, 35, 2, 56);
+
+  static const Color corDeFundo = Color.fromRGBO(236, 239, 241, 1);
+
+  static const Color corDoCard = Color.fromARGB(255, 224, 198, 240);
+
+  static const Color corDaFonteSimples = Color.fromARGB(255, 0, 0, 0);
+
+  static const Color corDaFonteDoTitulo = Color.fromARGB(255, 255, 255, 255);
+
+  static const Color corDoIcone = Color.fromARGB(255, 0, 0, 0);
 }
-*/
