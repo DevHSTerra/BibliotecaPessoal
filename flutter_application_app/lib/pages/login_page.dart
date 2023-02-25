@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(40, 40, 40, 40),
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                 child: Center(
                   child: Icon(
                     Icons.book_sharp,
@@ -92,6 +92,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
                                 backgroundColor: corPrincial,
                                 minimumSize: Size(100, 30),
                               ),

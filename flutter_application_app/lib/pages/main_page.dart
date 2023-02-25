@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller_Login.dart';
-import 'about_us.dart';
 import 'list_books.dart';
 
 class MainPage extends StatefulWidget {
@@ -26,8 +25,8 @@ class _MainPageState extends State<MainPage> {
           title: Row(children: [
             Expanded(
               child: Text(
-                '31 de fevereiro',
-                style: GoogleFonts.kanit(
+                'Shared Library',
+                style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
@@ -85,14 +84,13 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.only(top: 10),
               child: ListTile(
-                leading: Icon(Icons.help_rounded),
-                title: Text("Sobre nós"),
-                onTap: () {
-                  AboutUs();
-                },
-              ),
+                  leading: Icon(Icons.help_sharp),
+                  title: Text("Sobre Nós"),
+                  onTap: () {
+                    Navigator.pushNamed(context, 'about_us');
+                  }),
             ),
           ],
         ),

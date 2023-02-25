@@ -45,3 +45,12 @@ void sucesso(context, String msg) {
     ),
   );
 }
+
+/*
+void cores() {
+  var corPrincipal = const Color.fromARGB(255, 35, 2, 56);
+  var corDeFundo = const Color.fromARGB(255, 228, 228, 228);
+  var corDoCard = const Color.fromARGB(255, 227, 206, 240);
+  var corDaFonte = const Color.fromARGB(255, 0, 0, 0);
+}
+*/

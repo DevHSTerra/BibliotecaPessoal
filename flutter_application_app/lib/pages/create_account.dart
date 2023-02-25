@@ -30,7 +30,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
+                padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -38,7 +38,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       child: Text(
                         'Criar conta',
                         style: GoogleFonts.roboto(
-                          fontSize: 35,
+                          fontSize: 25,
                           color: corPrincial,
                           fontWeight: FontWeight.bold,
                         ),

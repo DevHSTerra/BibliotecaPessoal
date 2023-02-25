@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../controller/controller_Login.dart';
+
 class AboutUs extends StatefulWidget {
   const AboutUs({Key? key}) : super(key: key);
 
@@ -13,48 +15,108 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   var corPrincial = Color.fromARGB(255, 35, 2, 56);
 
+  var tituloSobreNos = 'O propósito do software Shared Library.';
+  var primeiroParagrafo =
+      "O software Shared Library tem como função o compartilhamento da biblioteca virtual que o usuário tem em posse, sendo necessário somente o login do usuário, para que seja possivel ter controle do fluxo de usuário no Banco de dados.";
+  var segundoParagrafo =
+      "Seu objetivo é a democratização do acesso aos livros, como também estimular a leitura.";
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-      color: corPrincial,
-      padding: const EdgeInsets.all(20.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text(
-              'O propósito do software Biblioteca 31 de fevereiro',
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            ),
-            Text(
-              'O software Biblioteca 31 de fevereiro tem como função o compartilhamento da biblioteca virtual que o usuário tem em posse, sendo necessário somente o login do usuário, para que seja possivel ter controle do fluxo de usuário no Banco de dados.',
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style:
-                  const TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
-            ),
-            Text(
-              'Seu objetivo é a democratização do acesso aos livros, como também estimular a leitura.',
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style:
-                  const TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
-            ),
-            TextButton(
-              child: Text(
-                "Retornar",
-                style: GoogleFonts.roboto(
-                  fontSize: 14,
-                  color: corPrincial,
-                ),
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: corPrincial,
+          centerTitle: true,
+          title: Text(
+            "Shared Library",
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: IconButton(
+                iconSize: 24,
+                icon: const Icon(Icons.logout),
+                onPressed: () {
+                  LoginController().logout();
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    'login',
+                    (Route<dynamic> route) => false,
+                  );
+                },
               ),
-              onPressed: () => {Navigator.pop(context)},
             ),
           ],
         ),
-      ),
-    ));
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 35, 10, 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Text(
+                      tituloSobreNos,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Text(
+                      primeiroParagrafo,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black),
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Text(
+                      segundoParagrafo,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black),
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 }

@@ -2,6 +2,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_app/pages/about_us.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
 import 'firebase_options.dart';
@@ -33,6 +34,7 @@ Future<void> main() async {
         'login': (context) => LoginPage(),
         'create_account': (context) => CreateAccountPage(),
         'main': (context) => MainPage(),
+        'about_us': (context) => AboutUs(),
       },
     ),
   );
