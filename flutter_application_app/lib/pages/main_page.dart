@@ -107,23 +107,6 @@ class _MainPageState extends State<MainPage> {
                     Navigator.pushNamed(context, 'about_us');
                   }),
             ),
-
-            // Teste de Implementação de Pesquisa
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ListTile(
-                  leading: Icon(
-                    Icons.help_sharp,
-                    color: Colors.black,
-                  ),
-                  title: Text(
-                    "Testando Busca",
-                    selectionColor: Colors.black,
-                  ),
-                  onTap: () {
-                    
-                  }),
-            ),
           ],
         ),
       ),
