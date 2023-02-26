@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,8 +21,18 @@ class _LoginPageState extends State<LoginPage> {
     txtEmail.text = '';
     txtSenha.text = '';
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Cores.corDeFundo,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Shared Library',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Cores.corDaFonteSimples),
+        ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -45,7 +54,8 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                     child: Text(
                       "Esqueceu a senha?",
-                      style: GoogleFonts.roboto(
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
                         fontSize: 14,
                         color: Cores.corPrincipal,
                       ),
@@ -154,8 +164,9 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                     child: Text(
                       "Novo usuário?",
-                      style: GoogleFonts.roboto(
+                      style: TextStyle(
                         fontSize: 14,
+                        fontWeight: FontWeight.normal,
                         color: Cores.corPrincipal,
                       ),
                     ),
@@ -168,6 +179,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+      backgroundColor: Cores.corDeFundo,
     );
   }
 }

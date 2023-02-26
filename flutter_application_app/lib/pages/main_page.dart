@@ -19,27 +19,28 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Cores.corPrincipal,
-          toolbarHeight: 70,
-          title: Row(children: [
-            Expanded(
-              child: Text(
-                'Shared Library',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ])),
-      drawer: Drawer(
+        backgroundColor: Cores.corPrincipal,
+        toolbarHeight: 70,
+        centerTitle: true,
+        title: Text(
+          'Shared Library',
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.fromLTRB(15, 15, 15, 60),
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.account_circle),
+                Icon(
+                  Icons.account_circle,
+                  color: Colors.black,
+                ),
                 FutureBuilder<String>(
                   future: LoginController().retornarUsuarioLogado(),
                   builder: (context, snapshot) {
@@ -61,7 +62,10 @@ class _MainPageState extends State<MainPage> {
                         return const Text('Empty data');
                       }
                     } else {
-                      return Text('State: ${snapshot.connectionState}');
+                      return Text(
+                        'State: ${snapshot.connectionState}',
+                        selectionColor: Colors.black,
+                      );
                     }
                   },
                 ),
@@ -70,8 +74,14 @@ class _MainPageState extends State<MainPage> {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: ListTile(
-                leading: Icon(Icons.logout),
-                title: Text("Logout"),
+                leading: Icon(
+                  Icons.logout,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Logout",
+                  selectionColor: Colors.black,
+                ),
                 onTap: () {
                   LoginController().logout();
                   Navigator.pushNamedAndRemoveUntil(
@@ -85,8 +95,14 @@ class _MainPageState extends State<MainPage> {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: ListTile(
-                  leading: Icon(Icons.help_sharp),
-                  title: Text("Sobre Nós"),
+                  leading: Icon(
+                    Icons.help_sharp,
+                    color: Colors.black,
+                  ),
+                  title: Text(
+                    "Sobre o app",
+                    selectionColor: Colors.black,
+                  ),
                   onTap: () {
                     Navigator.pushNamed(context, 'about_us');
                   }),

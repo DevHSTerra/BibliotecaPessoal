@@ -24,7 +24,7 @@ campoTexto(rotulo, icone, variavel, {senha}) {
 void erro(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Colors.redAccent.withOpacity(0.4),
+      backgroundColor: Color.fromARGB(255, 170, 0, 0).withOpacity(1),
       content: Text(
         msg,
         style: const TextStyle(color: Colors.white),
@@ -37,7 +37,7 @@ void erro(context, String msg) {
 void sucesso(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Colors.greenAccent.withOpacity(0.4),
+      backgroundColor: Color.fromARGB(255, 0, 114, 59).withOpacity(1),
       content: Text(
         msg,
         style: const TextStyle(color: Colors.white),
@@ -50,11 +50,11 @@ void sucesso(context, String msg) {
 // Search Bar
 
 abstract class Cores {
-  static const Color corPrincipal = Color.fromARGB(255, 35, 2, 56);
+  static const Color corPrincipal = Color.fromARGB(255, 3, 37, 59);
 
-  static const Color corDeFundo = Color.fromRGBO(236, 239, 241, 1);
+  static const Color corDeFundo = Color.fromRGBO(246, 246, 246, 1);
 
-  static const Color corDoCard = Color.fromARGB(255, 224, 198, 240);
+  static const Color corDoCard = Color.fromARGB(255, 159, 181, 207);
 
   static const Color corDaFonteSimples = Color.fromARGB(255, 0, 0, 0);
 

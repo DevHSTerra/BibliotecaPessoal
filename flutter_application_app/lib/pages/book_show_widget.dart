@@ -25,7 +25,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Cores.corDaFonteSimples,
+        color: Cores.corDeFundo,
         padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         child: StreamBuilder<QuerySnapshot>(
           stream: widget.livros.snapshots(),
@@ -56,8 +56,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                           subtitle: Text(
                             titulo,
                             style: GoogleFonts.roboto(
-                                fontSize: 14,
-                                color: Cores.corDaFonteSimples),
+                                fontSize: 14, color: Cores.corDaFonteSimples),
                           ),
                           trailing: Visibility(
                             // Efetuar o Download
