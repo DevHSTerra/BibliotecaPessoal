@@ -28,7 +28,7 @@ class _AboutUsState extends State<AboutUs> {
           title: Text(
             "Shared Library",
             style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Cores.corDaFonteDoTitulo),
+                fontSize: 24, fontWeight: FontWeight.bold),
           ),
           actions: [
             Padding(

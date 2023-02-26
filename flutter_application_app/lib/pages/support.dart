@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/cupertino.dart';
 
 campoTexto(rotulo, icone, variavel, {senha}) {
   return Padding(
@@ -24,7 +23,7 @@ campoTexto(rotulo, icone, variavel, {senha}) {
 void erro(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Color.fromARGB(255, 170, 0, 0).withOpacity(1),
+      backgroundColor: const Color.fromARGB(255, 170, 0, 0).withOpacity(1),
       content: Text(
         msg,
         style: const TextStyle(color: Colors.white),
@@ -37,7 +36,7 @@ void erro(context, String msg) {
 void sucesso(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Color.fromARGB(255, 0, 114, 59).withOpacity(1),
+      backgroundColor: const Color.fromARGB(255, 0, 114, 59).withOpacity(1),
       content: Text(
         msg,
         style: const TextStyle(color: Colors.white),
@@ -57,8 +56,6 @@ abstract class Cores {
   static const Color corDoCard = Color.fromARGB(255, 159, 181, 207);
 
   static const Color corDaFonteSimples = Color.fromARGB(255, 0, 0, 0);
-
-  static const Color corDaFonteDoTitulo = Color.fromARGB(255, 255, 255, 255);
 
   static const Color corDoIcone = Color.fromARGB(255, 0, 0, 0);
 }
