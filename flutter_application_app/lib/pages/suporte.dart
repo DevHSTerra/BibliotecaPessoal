@@ -20,6 +20,24 @@ campoTexto(rotulo, icone, variavel, {senha}) {
   );
 }
 
+campoBusca(rotulo, variavel) {
+  return Padding(
+    padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+    child: TextField(
+      controller: variavel,
+      style: GoogleFonts.roboto(fontSize: 16),
+      decoration: InputDecoration(
+        labelText: rotulo,
+        hintStyle: rotulo,
+        labelStyle: GoogleFonts.roboto(fontSize: 14),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    ),
+  );
+}
+
 void erro(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
@@ -47,8 +65,7 @@ void sucesso(context, String msg) {
 }
 
 // Search Bar
-
-abstract class Cores {
+abstract class Auxiliar {
   static const Color corPrincipal = Color.fromARGB(255, 3, 37, 59);
 
   static const Color corDeFundo = Color.fromRGBO(246, 246, 246, 1);
@@ -58,4 +75,16 @@ abstract class Cores {
   static const Color corDaFonteSimples = Color.fromARGB(255, 0, 0, 0);
 
   static const Color corDoIcone = Color.fromARGB(255, 0, 0, 0);
+
+  static const String nomeAplicativo = 'Biblioteca Compartilhada';
+
+  // Parte Sobre App
+  static const String tituloSobreApp =
+      "O propósito do software Shared Library.";
+
+  static const String primeiroParagrafo =
+      "O software Shared Library tem como função o compartilhamento da biblioteca virtual que o usuário tem em posse, sendo necessário somente o login do usuário, para que seja possivel ter controle do fluxo de usuário no Banco de dados.";
+
+  static const String segundoParagrafo =
+      "Seu objetivo é a democratização do acesso aos livros, como também estimular a leitura.";
 }

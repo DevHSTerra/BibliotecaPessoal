@@ -5,26 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'support.dart';
+import 'suporte.dart';
 
-class BookShowWidget extends StatefulWidget {
+class WidgetMostrarLivroGeral extends StatefulWidget {
   final livros;
   final cor;
   final icone;
 
-  const BookShowWidget(this.livros, this.cor, this.icone, {Key? key})
+  const WidgetMostrarLivroGeral(this.livros, this.cor, this.icone, {Key? key})
       : super(key: key);
 
   @override
-  State<BookShowWidget> createState() => _BookShowWidgetState();
+  State<WidgetMostrarLivroGeral> createState() => _WidgetMostrarLivroGeralState();
 }
 
-class _BookShowWidgetState extends State<BookShowWidget> {
+class _WidgetMostrarLivroGeralState extends State<WidgetMostrarLivroGeral> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Cores.corDeFundo,
+        color: Auxiliar.corDeFundo,
         padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         child: StreamBuilder<QuerySnapshot>(
           stream: widget.livros.snapshots(),
@@ -55,7 +55,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                           subtitle: Text(
                             titulo,
                             style: GoogleFonts.roboto(
-                                fontSize: 14, color: Cores.corDaFonteSimples),
+                                fontSize: 14, color: Auxiliar.corDaFonteSimples),
                           ),
                           trailing: Visibility(
                             // Efetuar o Download
@@ -63,7 +63,7 @@ class _BookShowWidgetState extends State<BookShowWidget> {
                             child: IconButton(
                               icon: Icon(
                                 widget.icone,
-                                color: Cores.corDoIcone,
+                                color: Auxiliar.corDoIcone,
                               ),
                               onPressed: () async {
                                 //final String path = await getApplicationDocumentsDirectory().path;

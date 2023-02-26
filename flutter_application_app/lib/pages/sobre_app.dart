@@ -1,34 +1,30 @@
+// ignore: prefer_const_literals_to_create_immutables
+// ignore: prefer_const_literals_to_create_immutables
+// ignore: prefer_const_literals_to_create_immutables
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_app/controller/controlador_de_login.dart';
 
-import '../controller/controller_Login.dart';
-import 'support.dart';
+import 'suporte.dart';
 
-class AboutUs extends StatefulWidget {
-  const AboutUs({Key? key}) : super(key: key);
+class SobreApp extends StatefulWidget {
+  const SobreApp({Key? key}) : super(key: key);
 
   @override
-  State<AboutUs> createState() => _AboutUsState();
+  State<SobreApp> createState() => _SobreAppState();
 }
 
-class _AboutUsState extends State<AboutUs> {
-
-  var tituloSobreNos = 'O propósito do software Shared Library.';
-  var primeiroParagrafo =
-      "O software Shared Library tem como função o compartilhamento da biblioteca virtual que o usuário tem em posse, sendo necessário somente o login do usuário, para que seja possivel ter controle do fluxo de usuário no Banco de dados.";
-  var segundoParagrafo =
-      "Seu objetivo é a democratização do acesso aos livros, como também estimular a leitura.";
+class _SobreAppState extends State<SobreApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Cores.corPrincipal,
+          backgroundColor: Auxiliar.corPrincipal,
           centerTitle: true,
           title: Text(
-            "Shared Library",
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold),
+            Auxiliar.nomeAplicativo,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           actions: [
             Padding(
@@ -37,7 +33,7 @@ class _AboutUsState extends State<AboutUs> {
                 iconSize: 24,
                 icon: const Icon(Icons.logout),
                 onPressed: () {
-                  LoginController().logout();
+                  ControladorDeLogin().logout();
                   Navigator.pushNamedAndRemoveUntil(
                     context,
                     'login',
@@ -59,11 +55,11 @@ class _AboutUsState extends State<AboutUs> {
                 children: [
                   Expanded(
                     child: Text(
-                      tituloSobreNos,
+                      Auxiliar.tituloSobreApp,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Cores.corDaFonteSimples),
+                          color: Auxiliar.corDaFonteSimples),
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       textDirection: TextDirection.ltr,
@@ -80,11 +76,11 @@ class _AboutUsState extends State<AboutUs> {
                 children: [
                   Expanded(
                     child: Text(
-                      primeiroParagrafo,
+                      Auxiliar.primeiroParagrafo,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                          color: Cores.corDaFonteSimples),
+                          color: Auxiliar.corDaFonteSimples),
                       maxLines: 7,
                       overflow: TextOverflow.ellipsis,
                       textDirection: TextDirection.ltr,
@@ -101,11 +97,11 @@ class _AboutUsState extends State<AboutUs> {
                 children: [
                   Expanded(
                     child: Text(
-                      segundoParagrafo,
+                      Auxiliar.segundoParagrafo,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                          color: Cores.corDaFonteSimples),
+                          color: Auxiliar.corDaFonteSimples),
                       maxLines: 7,
                       overflow: TextOverflow.ellipsis,
                       textDirection: TextDirection.ltr,

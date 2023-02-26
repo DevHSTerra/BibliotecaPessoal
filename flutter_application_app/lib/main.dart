@@ -2,12 +2,13 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_app/pages/about_us.dart';
+import 'package:flutter_application_app/pages/sobre_app.dart';
+import 'package:flutter_application_app/pages/pagina_login.dart';
+import 'package:flutter_application_app/pages/pagina_principal.dart';
 
 import 'firebase_options.dart';
-import 'pages/create_account.dart';
-import 'pages/login_page.dart';
-import 'pages/main_page.dart';
+import 'pages/criar_conta.dart';
+
 
 Future<void> main() async {
   await Firebase.initializeApp(
@@ -27,13 +28,13 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Biblioteca 31 de fevereiro',
+      title: 'Biblioteca Compartilhada',
       initialRoute: 'login',
       routes: {
-        'login': (context) => LoginPage(),
-        'create_account': (context) => CreateAccountPage(),
-        'main': (context) => MainPage(),
-        'about_us': (context) => AboutUs(),
+        'login': (context) => PaginaLogin(),
+        'criar_conta': (context) => CriarConta(),
+        'principal': (context) => PaginaPrincipal(),
+        'sobre_app': (context) => SobreApp(),
       },
     ),
   );
