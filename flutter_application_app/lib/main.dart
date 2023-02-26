@@ -3,7 +3,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app/pages/about_us.dart';
-import 'package:flutter_application_app/pages/search.dart';
 
 import 'firebase_options.dart';
 import 'pages/create_account.dart';

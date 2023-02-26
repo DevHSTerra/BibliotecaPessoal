@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_app/pages/search.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/books_controller.dart';
 import '../controller/controller_Login.dart';
 import '../pages/support.dart';
 import 'list_books.dart';
