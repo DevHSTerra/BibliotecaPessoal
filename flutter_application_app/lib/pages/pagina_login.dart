@@ -21,16 +21,6 @@ class _PaginaLoginState extends State<PaginaLogin> {
     txtEmail.text = '';
     txtSenha.text = '';
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Auxiliar.corDeFundo,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          Auxiliar.nomeAplicativo,
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Auxiliar.corDaFonteSimples),
-        ),
-      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
         child: SingleChildScrollView(
@@ -39,11 +29,8 @@ class _PaginaLoginState extends State<PaginaLogin> {
               Container(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                 child: Center(
-                  child: Icon(
-                    Icons.book_sharp,
-                    color: Auxiliar.corPrincipal,
-                    size: 75.0,
-                  ),
+                  child: Image.asset('wallpaper/logo-no-background.png',
+                      width: MediaQuery.of(context).size.width * 0.4),
                 ),
               ),
               campoTexto('Email', Icons.email, txtEmail),

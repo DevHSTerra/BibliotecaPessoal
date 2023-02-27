@@ -6,11 +6,4 @@ class ControladorDeLivros {
         .collection('livros')
         .orderBy('arquivo', descending: false);
   }
-
-  retornarBusca(pesquisa) {
-    return FirebaseFirestore.instance
-        .collection('livros')
-        .where('arquivo', isEqualTo: pesquisa)
-        .orderBy('arquivo', descending: false);
-  }
 }
