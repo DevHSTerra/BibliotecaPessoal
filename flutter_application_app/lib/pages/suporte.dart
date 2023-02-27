@@ -64,7 +64,6 @@ void sucesso(context, String msg) {
   );
 }
 
-// Search Bar
 abstract class Auxiliar {
   static const Color corPrincipal = Color.fromARGB(255, 3, 37, 59);
 
@@ -78,7 +77,6 @@ abstract class Auxiliar {
 
   static const String nomeAplicativo = 'Biblioteca Compartilhada';
 
-  // Parte Sobre App
   static const String tituloSobreApp =
       "O propósito do software Shared Library.";
 

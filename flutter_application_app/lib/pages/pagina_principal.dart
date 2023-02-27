@@ -110,7 +110,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
           ],
         ),
       ),
-      body: ListarLivrosGeral(),
+      body: ListarLivros(),
     );
   }
 }

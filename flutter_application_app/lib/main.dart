@@ -3,11 +3,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app/pages/sobre_app.dart';
-import 'package:flutter_application_app/pages/pagina_login.dart';
+import 'package:flutter_application_app/autentifica/pagina_login.dart';
 import 'package:flutter_application_app/pages/pagina_principal.dart';
 
 import 'firebase_options.dart';
-import 'pages/criar_conta.dart';
+import 'autentifica/criar_conta.dart';
 
 
 Future<void> main() async {
