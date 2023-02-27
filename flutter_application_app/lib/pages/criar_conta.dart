@@ -3,26 +3,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/controller_Login.dart';
-import 'support.dart';
+import '../controller/controlador_de_login.dart';
+import 'suporte.dart';
 
-class CreateAccountPage extends StatefulWidget {
-  const CreateAccountPage({Key? key}) : super(key: key);
+class CriarConta extends StatefulWidget {
+  const CriarConta({Key? key}) : super(key: key);
 
   @override
-  State<CreateAccountPage> createState() => _CreateAccountPageState();
+  State<CriarConta> createState() => _CriarContaState();
 }
 
-class _CreateAccountPageState extends State<CreateAccountPage> {
+class _CriarContaState extends State<CriarConta> {
   var txtNome = TextEditingController();
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Cores.corDeFundo,
+      backgroundColor: Auxiliar.corDeFundo,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -38,7 +37,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         'Criar conta',
                         style: GoogleFonts.roboto(
                           fontSize: 25,
-                          color: Cores.corPrincipal,
+                          color: Auxiliar.corPrincipal,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -54,11 +53,11 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  LoginController().criarConta(
+                  ControladorDeLogin().criarConta(
                       context, txtNome.text, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Cores.corPrincipal,
+                  backgroundColor: Auxiliar.corPrincipal,
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.7, 50),
                   shape: RoundedRectangleBorder(
@@ -81,7 +80,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       "Cancelar",
                       style: GoogleFonts.roboto(
                         fontSize: 14,
-                        color: Cores.corPrincipal,
+                        color: Auxiliar.corPrincipal,
                       ),
                     ),
                     onPressed: () => {Navigator.pop(context)},

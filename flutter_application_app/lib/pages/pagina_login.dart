@@ -2,17 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/controller_Login.dart';
-import 'support.dart';
+import '../controller/controlador_de_login.dart';
+import 'suporte.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class PaginaLogin extends StatefulWidget {
+  const PaginaLogin({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<PaginaLogin> createState() => _PaginaLoginState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _PaginaLoginState extends State<PaginaLogin> {
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
 
@@ -22,13 +22,13 @@ class _LoginPageState extends State<LoginPage> {
     txtSenha.text = '';
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Cores.corDeFundo,
+        backgroundColor: Auxiliar.corDeFundo,
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Shared Library',
+          Auxiliar.nomeAplicativo,
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: Cores.corDaFonteSimples),
+              fontWeight: FontWeight.bold, color: Auxiliar.corDaFonteSimples),
         ),
       ),
       body: Padding(
@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Center(
                   child: Icon(
                     Icons.book_sharp,
-                    color: Cores.corPrincipal,
+                    color: Auxiliar.corPrincipal,
                     size: 75.0,
                   ),
                 ),
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 14,
-                        color: Cores.corPrincipal,
+                        color: Auxiliar.corPrincipal,
                       ),
                     ),
                     onPressed: () {
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                             'Informe seu e-mail',
                             style: GoogleFonts.roboto(
                               fontSize: 16,
-                              color: Cores.corPrincipal,
+                              color: Auxiliar.corPrincipal,
                             ),
                           ),
                           titlePadding: EdgeInsets.all(20),
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                               ],
                             ),
                           ),
-                          backgroundColor: Cores.corDeFundo,
+                          backgroundColor: Auxiliar.corDeFundo,
                           actionsPadding: EdgeInsets.fromLTRB(0, 0, 20, 20),
                           actions: [
                             TextButton(
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                                 'Cancelar',
                                 style: GoogleFonts.roboto(
                                   fontSize: 14,
-                                  color: Cores.corDeFundo,
+                                  color: Auxiliar.corDeFundo,
                                 ),
                               ),
                             ),
@@ -103,12 +103,12 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
-                                backgroundColor: Cores.corPrincipal,
+                                backgroundColor: Auxiliar.corPrincipal,
                                 minimumSize: Size(100, 30),
                               ),
                               onPressed: () async {
                                 if (txtEmail.text.isNotEmpty) {
-                                  LoginController()
+                                  ControladorDeLogin()
                                       .esqueceuSenha(txtEmail.text);
                                   sucesso(
                                       context, 'E-mail enviado com sucesso.');
@@ -139,11 +139,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  LoginController()
+                  ControladorDeLogin()
                       .login(context, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Cores.corPrincipal,
+                  backgroundColor: Auxiliar.corPrincipal,
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.7, 50),
                   shape: RoundedRectangleBorder(
@@ -167,11 +167,11 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
-                        color: Cores.corPrincipal,
+                        color: Auxiliar.corPrincipal,
                       ),
                     ),
                     onPressed: () =>
-                        {Navigator.pushNamed(context, 'create_account')},
+                        {Navigator.pushNamed(context, 'criar_conta')},
                   ),
                 ],
               ),
@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-      backgroundColor: Cores.corDeFundo,
+      backgroundColor: Auxiliar.corDeFundo,
     );
   }
 }

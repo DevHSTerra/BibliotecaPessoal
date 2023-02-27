@@ -4,17 +4,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/support.dart';
+import '../pages/suporte.dart';
 
-
-class LoginController {
-
+class ControladorDeLogin {
   void login(context, email, senha) {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: senha)
         .then((res) {
       sucesso(context, 'Usuário autenticado com sucesso.');
-      Navigator.pushReplacementNamed(context, 'main');
+      Navigator.pushReplacementNamed(context, 'principal');
     }).catchError((e) {
       switch (e.code) {
         case 'invalid-email':
@@ -42,7 +40,6 @@ class LoginController {
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: senha)
         .then((res) {
-
       FirebaseFirestore.instance.collection('usuarios').add(
         {
           "uid": res.user!.uid.toString(),

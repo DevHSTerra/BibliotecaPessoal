@@ -3,27 +3,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/controller_Login.dart';
-import '../pages/support.dart';
-import 'list_books.dart';
+import '../controller/controlador_de_login.dart';
+import 'listar_livros_geral.dart';
+import 'suporte.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class PaginaPrincipal extends StatefulWidget {
+  const PaginaPrincipal({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<PaginaPrincipal> createState() => _PaginaPrincipalState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _PaginaPrincipalState extends State<PaginaPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Cores.corPrincipal,
+        backgroundColor: Auxiliar.corPrincipal,
         toolbarHeight: 70,
         centerTitle: true,
         title: Text(
-          'Shared Library',
+          Auxiliar.nomeAplicativo,
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
                   color: Colors.black,
                 ),
                 FutureBuilder<String>(
-                  future: LoginController().retornarUsuarioLogado(),
+                  future: ControladorDeLogin().retornarUsuarioLogado(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return CircularProgressIndicator();
@@ -83,7 +83,7 @@ class _MainPageState extends State<MainPage> {
                   selectionColor: Colors.black,
                 ),
                 onTap: () {
-                  LoginController().logout();
+                  ControladorDeLogin().logout();
                   Navigator.pushNamedAndRemoveUntil(
                     context,
                     'login',
@@ -104,13 +104,13 @@ class _MainPageState extends State<MainPage> {
                     selectionColor: Colors.black,
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, 'about_us');
+                    Navigator.pushNamed(context, 'sobre_app');
                   }),
             ),
           ],
         ),
       ),
-      body: ListBooks(),
+      body: ListarLivrosGeral(),
     );
   }
 }
