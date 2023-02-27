@@ -1,27 +1,21 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controlador_de_login.dart';
 import 'suporte.dart';
-import '../controller/controlador_de_login.dart';
-import 'suporte.dart';
 
-class PaginaLogin extends StatefulWidget {
-  const PaginaLogin({Key? key}) : super(key: key);
 class PaginaLogin extends StatefulWidget {
   const PaginaLogin({Key? key}) : super(key: key);
 
   @override
   State<PaginaLogin> createState() => _PaginaLoginState();
-  State<PaginaLogin> createState() => _PaginaLoginState();
 }
 
 class _PaginaLoginState extends State<PaginaLogin> {
-class _PaginaLoginState extends State<PaginaLogin> {
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     txtEmail.text = '';
@@ -51,7 +45,6 @@ class _PaginaLoginState extends State<PaginaLogin> {
                         fontWeight: FontWeight.normal,
                         fontSize: 14,
                         color: Auxiliar.corPrincipal,
-                        color: Auxiliar.corPrincipal,
                       ),
                     ),
                     onPressed: () {
@@ -62,7 +55,6 @@ class _PaginaLoginState extends State<PaginaLogin> {
                             'Informe seu e-mail',
                             style: GoogleFonts.roboto(
                               fontSize: 16,
-                              color: Auxiliar.corPrincipal,
                               color: Auxiliar.corPrincipal,
                             ),
                           ),
@@ -76,7 +68,6 @@ class _PaginaLoginState extends State<PaginaLogin> {
                               ],
                             ),
                           ),
-                          backgroundColor: Auxiliar.corDeFundo,
                           backgroundColor: Auxiliar.corDeFundo,
                           actionsPadding: EdgeInsets.fromLTRB(0, 0, 20, 20),
                           actions: [
@@ -92,7 +83,6 @@ class _PaginaLoginState extends State<PaginaLogin> {
                                 style: GoogleFonts.roboto(
                                   fontSize: 14,
                                   color: Auxiliar.corDeFundo,
-                                  color: Auxiliar.corDeFundo,
                                 ),
                               ),
                             ),
@@ -101,12 +91,10 @@ class _PaginaLoginState extends State<PaginaLogin> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                                 backgroundColor: Auxiliar.corPrincipal,
-                                backgroundColor: Auxiliar.corPrincipal,
                                 minimumSize: Size(100, 30),
                               ),
                               onPressed: () async {
                                 if (txtEmail.text.isNotEmpty) {
-                                  ControladorDeLogin()
                                   ControladorDeLogin()
                                       .esqueceuSenha(txtEmail.text);
                                   sucesso(
@@ -139,11 +127,9 @@ class _PaginaLoginState extends State<PaginaLogin> {
               ElevatedButton(
                 onPressed: () {
                   ControladorDeLogin()
-                  ControladorDeLogin()
                       .login(context, txtEmail.text, txtSenha.text);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Auxiliar.corPrincipal,
                   backgroundColor: Auxiliar.corPrincipal,
                   minimumSize:
                       Size(MediaQuery.of(context).size.width * 0.7, 50),
@@ -169,11 +155,9 @@ class _PaginaLoginState extends State<PaginaLogin> {
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
                         color: Auxiliar.corPrincipal,
-                        color: Auxiliar.corPrincipal,
                       ),
                     ),
                     onPressed: () =>
-                        {Navigator.pushNamed(context, 'criar_conta')},
                         {Navigator.pushNamed(context, 'criar_conta')},
                   ),
                 ],
@@ -182,7 +166,6 @@ class _PaginaLoginState extends State<PaginaLogin> {
           ),
         ),
       ),
-      backgroundColor: Auxiliar.corDeFundo,
       backgroundColor: Auxiliar.corDeFundo,
     );
   }
