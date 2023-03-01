@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controlador_de_login.dart';
 import 'listar_livros_geral.dart';
-import 'suporte.dart';
+import '../suporte/suporte.dart';
 
 class PaginaPrincipal extends StatefulWidget {
   const PaginaPrincipal({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
       endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.fromLTRB(15, 15, 15, 60),
-          children: <Widget>[
+          children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -74,6 +74,47 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: ListTile(
+                  leading: Icon(
+                    Icons.favorite,
+                    color: Colors.black,
+                  ),
+                  title: Text(
+                    "Favorito",
+                    selectionColor: Colors.black,
+                  ),
+                  onTap: () {}),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 0),
+              child: ListTile(
+                  leading: Icon(
+                    Icons.menu_book,
+                    color: Colors.black,
+                  ),
+                  title: Text(
+                    "Livros lidos",
+                    selectionColor: Colors.black,
+                  ),
+                  onTap: () {}),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 0),
+              child: ListTile(
+                  leading: Icon(
+                    Icons.help_sharp,
+                    color: Colors.black,
+                  ),
+                  title: Text(
+                    "Sobre o app",
+                    selectionColor: Colors.black,
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, 'sobre_app');
+                  }),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 0),
+              child: ListTile(
                 leading: Icon(
                   Icons.logout,
                   color: Colors.black,
@@ -91,21 +132,6 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
                   );
                 },
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ListTile(
-                  leading: Icon(
-                    Icons.help_sharp,
-                    color: Colors.black,
-                  ),
-                  title: Text(
-                    "Sobre o app",
-                    selectionColor: Colors.black,
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, 'sobre_app');
-                  }),
             ),
           ],
         ),

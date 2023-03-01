@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app/controller/controlador_de_login.dart';
 
-import 'suporte.dart';
+import '../suporte/suporte.dart';
 
 class SobreApp extends StatefulWidget {
   const SobreApp({Key? key}) : super(key: key);
@@ -53,7 +53,7 @@ class _SobreAppState extends State<SobreApp> {
               padding: const EdgeInsets.fromLTRB(10, 35, 10, 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Expanded(
                     child: Text(
                       Auxiliar.tituloSobreApp,
@@ -74,7 +74,7 @@ class _SobreAppState extends State<SobreApp> {
               padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Expanded(
                     child: Text(
                       Auxiliar.primeiroParagrafo,
@@ -95,7 +95,7 @@ class _SobreAppState extends State<SobreApp> {
               padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Expanded(
                     child: Text(
                       Auxiliar.segundoParagrafo,

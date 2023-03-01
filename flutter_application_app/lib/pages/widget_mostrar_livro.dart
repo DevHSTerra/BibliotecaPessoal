@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'suporte.dart';
+import '../suporte/suporte.dart';
 
 class WidgetMostrarLivroGeral extends StatefulWidget {
   final livros;

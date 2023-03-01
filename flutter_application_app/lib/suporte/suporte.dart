@@ -20,24 +20,6 @@ campoTexto(rotulo, icone, variavel, {senha}) {
   );
 }
 
-campoBusca(rotulo, variavel) {
-  return Padding(
-    padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-    child: TextField(
-      controller: variavel,
-      style: GoogleFonts.roboto(fontSize: 16),
-      decoration: InputDecoration(
-        labelText: rotulo,
-        hintStyle: rotulo,
-        labelStyle: GoogleFonts.roboto(fontSize: 14),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
-    ),
-  );
-}
-
 void erro(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
@@ -65,6 +47,7 @@ void sucesso(context, String msg) {
 }
 
 abstract class Auxiliar {
+  // Variáveis 'Cores'
   static const Color corPrincipal = Color.fromARGB(255, 3, 37, 59);
 
   static const Color corDeFundo = Color.fromRGBO(246, 246, 246, 1);
@@ -75,7 +58,11 @@ abstract class Auxiliar {
 
   static const Color corDoIcone = Color.fromARGB(255, 0, 0, 0);
 
+  // Variáveis de Texto
+
   static const String nomeAplicativo = 'Biblioteca Compartilhada';
+
+  static const String imagemLogo = "wallpaper/logo-no-background.png";
 
   static const String tituloSobreApp =
       "O propósito do software Shared Library.";

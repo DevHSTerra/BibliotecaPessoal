@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controlador_de_login.dart';
-import '../pages/suporte.dart';
+import '../suporte/suporte.dart';
 
 class PaginaLogin extends StatefulWidget {
   const PaginaLogin({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class _PaginaLoginState extends State<PaginaLogin> {
               Container(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                 child: Center(
-                  child: Image.asset('wallpaper/logo-no-background.png',
+                  child: Image.asset(Auxiliar.imagemLogo,
                       width: MediaQuery.of(context).size.width * 0.4),
                 ),
               ),

@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controlador_de_login.dart';
-import '../pages/suporte.dart';
+import '../suporte/suporte.dart';
 
 class CriarConta extends StatefulWidget {
   const CriarConta({Key? key}) : super(key: key);
@@ -28,7 +26,7 @@ class _CriarContaState extends State<CriarConta> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -48,7 +46,7 @@ class _CriarContaState extends State<CriarConta> {
               campoTexto('Nome', Icons.person, txtNome),
               campoTexto('E-mail', Icons.email, txtEmail),
               campoTexto('Senha', Icons.lock, txtSenha, senha: true),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               ElevatedButton(
@@ -69,7 +67,7 @@ class _CriarContaState extends State<CriarConta> {
                   style: GoogleFonts.roboto(fontSize: 16),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
