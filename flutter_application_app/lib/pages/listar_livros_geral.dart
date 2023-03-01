@@ -2,18 +2,18 @@
 
 import 'package:flutter/material.dart';
 
-import '../controller/Controlador_de_livros.dart';
+import '../controller/controlador_de_livros.dart';
 import 'suporte.dart';
-import 'widget_mostrar_livro_geral.dart';
+import 'widget_mostrar_livro.dart';
 
-class ListarLivrosGeral extends StatefulWidget {
-  const ListarLivrosGeral({Key? key}) : super(key: key);
+class ListarLivros extends StatefulWidget {
+  const ListarLivros({Key? key}) : super(key: key);
 
   @override
-  State<ListarLivrosGeral> createState() => _ListarLivrosGeralState();
+  State<ListarLivros> createState() => _ListarLivrosState();
 }
 
-class _ListarLivrosGeralState extends State<ListarLivrosGeral> {
+class _ListarLivrosState extends State<ListarLivros> {
   var livros;
 
   @override
