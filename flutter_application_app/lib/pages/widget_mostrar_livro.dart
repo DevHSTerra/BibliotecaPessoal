@@ -5,64 +5,85 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../controller/controlador_de_login.dart';
 import '../suporte/suporte.dart';
 
-class WidgetMostrarLivroGeral extends StatefulWidget {
+class WidgetMostrarLivro extends StatefulWidget {
   final livros;
-  final cor;
-  final icone;
+  final List favoritos;
 
-  const WidgetMostrarLivroGeral(this.livros, this.cor, this.icone, {Key? key})
+  const WidgetMostrarLivro(this.livros, this.favoritos, {Key? key})
       : super(key: key);
 
   @override
-  State<WidgetMostrarLivroGeral> createState() => _WidgetMostrarLivroGeralState();
+  State<WidgetMostrarLivro> createState() => _WidgetMostrarLivroState();
 }
 
-class _WidgetMostrarLivroGeralState extends State<WidgetMostrarLivroGeral> {
+class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: Auxiliar.corDeFundo,
-        padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-        child: StreamBuilder<QuerySnapshot>(
-          stream: widget.livros.snapshots(),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.none:
-                return const Center(
-                  child: Text('Não foi possível conectar.'),
-                );
-              case ConnectionState.waiting:
-                return const Center(child: CircularProgressIndicator());
-              default:
-                final dados = snapshot.requireData;
-                if (dados.size > 0) {
-                  return ListView.builder(
-                    itemCount: dados.size,
-                    itemBuilder: (context, index) {
-                      dynamic item = dados.docs[index].data();
-                      String autor = item['autor'];
-                      String titulo = item['titulo'];
+    return Container(
+      color: Auxiliar.corDeFundo,
+      padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+      child: StreamBuilder<QuerySnapshot>(
+        stream: widget.livros.snapshots(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              return const Center(
+                child: Text('Não foi possível conectar.'),
+              );
+            case ConnectionState.waiting:
+              return const Center(child: CircularProgressIndicator());
+            default:
+              final dados = snapshot.requireData;
+              if (dados.size > 0) {
+                return ListView.builder(
+                  itemCount: dados.size,
+                  itemBuilder: (context, index) {
+                    dynamic item = dados.docs[index].data();
+                    String autor = item['autor'];
+                    String titulo = item['titulo'];
+                    String id = dados.docs[index].reference.id;
 
-                      return Card(
-                        color: widget.cor,
-                        child: ListTile(
+                    return Card(
+                      color: Auxiliar.corDoCard,
+                      child: ListTile(
                           title: Text(autor,
                               style: GoogleFonts.roboto(
                                   fontSize: 16, fontWeight: FontWeight.bold)),
                           subtitle: Text(
                             titulo,
                             style: GoogleFonts.roboto(
-                                fontSize: 14, color: Auxiliar.corDaFonteSimples),
+                                fontSize: 14,
+                                color: Auxiliar.corDaFonteSimples),
                           ),
-                          trailing: Visibility(
-                            // Efetuar o Download
-                            // Download executado ao clicar no Icone
-                            child: IconButton(
+                          trailing:
+                              Row(mainAxisSize: MainAxisSize.min, children: [
+                            IconButton(
                               icon: Icon(
-                                widget.icone,
+                                widget.favoritos.contains(id)
+                                    ? Icons.favorite
+                                    : Icons.favorite_outline,
+                                size: 20,
+                                color: Auxiliar.corDoIcone,
+                              ),
+                              onPressed: () async {
+                                ControladorDeLogin().adicionarLivrosFavoritos(id);
+                              },
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.menu_book,
+                                size: 20,
+                                color: Auxiliar.corDoIcone,
+                              ),
+                              onPressed: () async {},
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.download,
+                                size: 20,
                                 color: Auxiliar.corDoIcone,
                               ),
                               onPressed: () async {
@@ -77,19 +98,17 @@ class _WidgetMostrarLivroGeralState extends State<WidgetMostrarLivroGeral> {
                                 );
                               },
                             ),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                } else {
-                  return Center(
-                    child: Text('Nenhuma livro encontrado.'),
-                  );
-                }
-            }
-          },
-        ),
+                          ])),
+                    );
+                  },
+                );
+              } else {
+                return Center(
+                  child: Text('Nenhuma livro encontrado.'),
+                );
+              }
+          }
+        },
       ),
     );
   }

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controlador_de_login.dart';
-import 'listar_livros_geral.dart';
 import '../suporte/suporte.dart';
+import 'listar_livros.dart';
 
 class PaginaPrincipal extends StatefulWidget {
   const PaginaPrincipal({Key? key}) : super(key: key);
@@ -72,7 +72,20 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 50),
+              child: ListTile(
+                  leading: Icon(
+                    Icons.book,
+                    color: Colors.black,
+                  ),
+                  title: Text(
+                    "Todos os livros",
+                    selectionColor: Colors.black,
+                  ),
+                  onTap: () {}),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                   leading: Icon(
                     Icons.favorite,
@@ -85,7 +98,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
                   onTap: () {}),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 0),
+              padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                   leading: Icon(
                     Icons.menu_book,
@@ -98,7 +111,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
                   onTap: () {}),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 0),
+              padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                   leading: Icon(
                     Icons.help_sharp,
@@ -135,6 +148,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
             ),
           ],
         ),
+        
       ),
       body: ListarLivros(),
     );
