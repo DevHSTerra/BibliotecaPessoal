@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, file_names
 
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -87,43 +86,5 @@ class ControladorDeLogin {
       },
     );
     return res;
-  }
-
-  Future<List> retornarLivrosFavoritos() async {
-    var uid = FirebaseAuth.instance.currentUser!.uid;
-    var res;
-    await FirebaseFirestore.instance
-        .collection('usuarios')
-        .where('uid', isEqualTo: uid)
-        .get()
-        .then(
-      (q) {
-        if (q.docs.isNotEmpty) {
-          res = q.docs[0].data()['favoritos'];
-        } else {
-          res = [];
-        }
-      },
-    );
-    return res;
-  }
-
-  Future<void> adicionarLivrosFavoritos(livroid) async {
-    var uid = FirebaseAuth.instance.currentUser!.uid;
-    var usuarioid;
-
-    print("Id do usuário");
-    print(usuarioid);
-
-    print('Print do UID');
-    print(uid);
-
-    print('Print do Livro ID');
-    print(livroid);
-
-    FirebaseFirestore.instance
-        .collection('usuarios')
-        .doc('usuarioid')
-        .update({'favoritos': livroid});
   }
 }

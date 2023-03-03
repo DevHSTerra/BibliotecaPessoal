@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/controlador_de_login.dart';
+import '../controller/controlador_de_livros.dart';
 import '../suporte/suporte.dart';
 
 class WidgetMostrarLivro extends StatefulWidget {
@@ -41,10 +41,10 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
                 return ListView.builder(
                   itemCount: dados.size,
                   itemBuilder: (context, index) {
-                    dynamic item = dados.docs[index].data();
-                    String autor = item['autor'];
-                    String titulo = item['titulo'];
-                    String id = dados.docs[index].reference.id;
+                    dynamic livroDados = dados.docs[index].data();
+                    String autor = livroDados['autor'];
+                    String titulo = livroDados['titulo'];
+                    String livroId = dados.docs[index].reference.id;
 
                     return Card(
                       color: Auxiliar.corDoCard,
@@ -60,26 +60,30 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
                           ),
                           trailing:
                               Row(mainAxisSize: MainAxisSize.min, children: [
+                            //Favoritos
                             IconButton(
-                              icon: Icon(
-                                widget.favoritos.contains(id)
-                                    ? Icons.favorite
-                                    : Icons.favorite_outline,
-                                size: 20,
-                                color: Auxiliar.corDoIcone,
-                              ),
-                              onPressed: () async {
-                                ControladorDeLogin().adicionarLivrosFavoritos(id);
-                              },
-                            ),
+                                icon: Icon(
+                                  widget.favoritos.contains(livroId)
+                                      ? Icons.favorite
+                                      : Icons.favorite_outline,
+                                  size: 20,
+                                  color: Auxiliar.corDoIcone,
+                                ),
+                                onPressed: () async {
+                                  if (snapshot.hasData) {
+                                    // ControladorDeLivros().adicionarLivrosFavoritos(livroId);
+                                  }
+                                }),
+                            // Livros Lidos
                             IconButton(
-                              icon: Icon(
-                                Icons.menu_book,
-                                size: 20,
-                                color: Auxiliar.corDoIcone,
-                              ),
-                              onPressed: () async {},
-                            ),
+                                icon: Icon(
+                                  widget.favoritos.contains(livroId)
+                                      ? Icons.menu_book
+                                      : Icons.book,
+                                  size: 20,
+                                  color: Auxiliar.corDoIcone,
+                                ),
+                                onPressed: () async {}),
                             IconButton(
                               icon: Icon(
                                 Icons.download,
@@ -89,7 +93,7 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
                               onPressed: () async {
                                 //final String path = await getApplicationDocumentsDirectory().path;
                                 final taskId = await FlutterDownloader.enqueue(
-                                  url: item['LinkDownload'],
+                                  url: livroDados['LinkDownload'],
                                   savedDir: '/storage/emulated/0/Download',
                                   showNotification:
                                       true, // show download progress in status bar (for Android)

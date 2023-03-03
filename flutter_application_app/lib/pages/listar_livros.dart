@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_app/controller/controlador_de_livros.dart';
-import 'package:flutter_application_app/controller/controlador_de_login.dart';
 import 'package:flutter_application_app/pages/widget_mostrar_livro.dart';
 
 class ListarLivros extends StatefulWidget {
@@ -20,17 +19,13 @@ class _ListarLivrosState extends State<ListarLivros> {
   void initState() {
     super.initState();
     livros = ControladorDeLivros().listar();
-    favoritos = ControladorDeLogin().retornarLivrosFavoritos();
+    favoritos = ControladorDeLivros().retornarLivrosFavoritos();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blueGrey.shade50,
-      // child: WidgetMostrarLivro(
-      //   livros,
-      //   favoritos,
-      // ),
       child: FutureBuilder<List>(
         future: favoritos,
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
