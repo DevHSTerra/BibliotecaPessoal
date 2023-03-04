@@ -71,7 +71,8 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
                                 ),
                                 onPressed: () async {
                                   if (snapshot.hasData) {
-                                    // ControladorDeLivros().adicionarLivrosFavoritos(livroId);
+                                    ControladorDeLivros()
+                                        .adicionarLivrosFavoritos(livroId);
                                   }
                                 }),
                             // Livros Lidos

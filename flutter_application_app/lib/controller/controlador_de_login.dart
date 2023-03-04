@@ -36,13 +36,15 @@ class ControladorDeLogin {
     );
   }
 
-  void criarConta(context, nome, email, senha) {
+  void criarConta(BuildContext context, String nome, String email, senha) {
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: senha)
         .then((res) {
-      FirebaseFirestore.instance.collection('usuarios').add(
+      FirebaseFirestore.instance
+          .collection('usuarios')
+          .doc(res.user!.uid.toString())
+          .set(
         {
-          "uid": res.user!.uid.toString(),
           "nome": nome,
           "favoritos": [],
           "lidos": [],

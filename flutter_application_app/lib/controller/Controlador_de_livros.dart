@@ -27,13 +27,12 @@ class ControladorDeLivros {
     return res;
   }
 
-  // Future<void> adicionarLivrosFavoritos(livroid) async {
-  //   var uid = FirebaseAuth.instance.currentUser!.uid;
-  //   await FirebaseFirestore.instance
-  //       .collection('usuarios')
-  //       .where('uid', isEqualTo: uid)
-  //       .get()
-  //       .docs[0].reference.
-  //       update({'favoritos': livroid});
-  // }
+  Future<void> adicionarLivrosFavoritos(livroid) async {
+    var uid = FirebaseAuth.instance.currentUser!.uid;
+
+    await FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(uid)
+        .update({"favoritos": livroid});
+  }
 }
