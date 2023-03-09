@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_app/controller/controlador_de_livros.dart';
 import 'package:flutter_application_app/pages/widget_mostrar_livro.dart';
 
-class ListarLivros extends StatefulWidget {
-  const ListarLivros({Key? key}) : super(key: key);
+class PaginaLivroGeral extends StatefulWidget {
+  const PaginaLivroGeral({Key? key}) : super(key: key);
 
   @override
-  State<ListarLivros> createState() => _ListarLivrosState();
+  State<PaginaLivroGeral> createState() => _PaginaLivroGeralState();
 }
 
-class _ListarLivrosState extends State<ListarLivros> {
+class _PaginaLivroGeralState extends State<PaginaLivroGeral> {
   var livros;
   var favoritos;
 

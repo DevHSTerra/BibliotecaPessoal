@@ -20,7 +20,14 @@ class WidgetMostrarLivro extends StatefulWidget {
 }
 
 class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
+  List<String> _favoritos = [];
+
   @override
+  void initState() {
+    super.initState();
+    _favoritos = widget.favoritos.toList().cast<String>();
+  }
+
   Widget build(BuildContext context) {
     return Container(
       color: Auxiliar.corDeFundo,
@@ -72,7 +79,14 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
                                 onPressed: () async {
                                   if (snapshot.hasData) {
                                     ControladorDeLivros()
-                                        .adicionarLivrosFavoritos(livroId);
+                                        .livroFavorito(livroId);
+                                    setState(() {
+                                      if (widget.favoritos.contains(livroId)) {
+                                        widget.favoritos.remove(livroId);
+                                      } else {
+                                        widget.favoritos.add(livroId);
+                                      }
+                                    });
                                   }
                                 }),
                             // Livros Lidos

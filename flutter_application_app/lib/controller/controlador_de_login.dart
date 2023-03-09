@@ -72,21 +72,20 @@ class ControladorDeLogin {
   }
 
   Future<String> retornarUsuarioLogado() async {
-    var uid = FirebaseAuth.instance.currentUser!.uid;
-    var res;
-    await FirebaseFirestore.instance
+    final currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser == null) {
+      return "";
+    }
+
+    final userDoc = await FirebaseFirestore.instance
         .collection('usuarios')
-        .where('uid', isEqualTo: uid)
-        .get()
-        .then(
-      (q) {
-        if (q.docs.isNotEmpty) {
-          res = q.docs[0].data()['nome'];
-        } else {
-          res = "";
-        }
-      },
-    );
-    return res;
+        .doc(currentUser.uid)
+        .get();
+
+    if (userDoc.exists) {
+      return userDoc.data()?['nome'] ?? "";
+    } else {
+      return "";
+    }
   }
 }

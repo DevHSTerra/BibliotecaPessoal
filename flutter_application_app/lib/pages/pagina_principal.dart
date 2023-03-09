@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controlador_de_login.dart';
 import '../suporte/suporte.dart';
-import 'listar_livros.dart';
+import 'pagina_listar_livros.dart';
 
 class PaginaPrincipal extends StatefulWidget {
   const PaginaPrincipal({Key? key}) : super(key: key);
@@ -15,6 +15,13 @@ class PaginaPrincipal extends StatefulWidget {
 }
 
 class _PaginaPrincipalState extends State<PaginaPrincipal> {
+  final List<Widget> telas = [
+    PaginaLivroGeral(),
+    //TarefasAndamentoPage(),
+    //TarefasConcluidasPage(),
+  ];
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +39,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
       ),
       endDrawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.fromLTRB(15, 15, 15, 60),
+          padding: EdgeInsets.fromLTRB(15, 15, 15, 0), // alterei aqui
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -72,45 +79,6 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: ListTile(
-                  leading: Icon(
-                    Icons.book,
-                    color: Colors.black,
-                  ),
-                  title: Text(
-                    "Todos os livros",
-                    selectionColor: Colors.black,
-                  ),
-                  onTap: () {}),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: ListTile(
-                  leading: Icon(
-                    Icons.favorite,
-                    color: Colors.black,
-                  ),
-                  title: Text(
-                    "Favorito",
-                    selectionColor: Colors.black,
-                  ),
-                  onTap: () {}),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: ListTile(
-                  leading: Icon(
-                    Icons.menu_book,
-                    color: Colors.black,
-                  ),
-                  title: Text(
-                    "Livros lidos",
-                    selectionColor: Colors.black,
-                  ),
-                  onTap: () {}),
-            ),
-            Padding(
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                   leading: Icon(
@@ -148,9 +116,43 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
             ),
           ],
         ),
-        
       ),
-      body: ListarLivros(),
+      body: telas[index],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Auxiliar.corPrincipal,
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.white,
+        selectedIconTheme: IconThemeData(size: 25),
+        unselectedIconTheme: IconThemeData(size: 20),
+        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+        iconSize: 40,
+        currentIndex: index,
+        onTap: (idx) {
+          setState(() {
+            index = idx;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.book,
+            ),
+            label: 'Livros Geral',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite,
+            ),
+            label: 'Favoritos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.menu_book,
+            ),
+            label: 'Lidos',
+          ),
+        ],
+      ),
     );
   }
 }

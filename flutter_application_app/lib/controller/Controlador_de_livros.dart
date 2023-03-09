@@ -13,26 +13,45 @@ class ControladorDeLivros {
     var res;
     await FirebaseFirestore.instance
         .collection('usuarios')
-        .where('uid', isEqualTo: uid)
+        .doc(uid) // adicionar o UID do usuário autenticado aqui
         .get()
-        .then(
-      (q) {
-        if (q.docs.isNotEmpty) {
-          res = q.docs[0].data()['favoritos'];
-        } else {
-          res = [];
-        }
-      },
-    );
+        .then((doc) {
+      if (doc.exists) {
+        res = doc.data()?['favoritos'] ?? [];
+      } else {
+        res = [];
+      }
+    });
     return res;
   }
 
-  Future<void> adicionarLivrosFavoritos(livroid) async {
-    var uid = FirebaseAuth.instance.currentUser!.uid;
+  Future<void> livroFavorito(String livroId) async {
+    final user = FirebaseAuth.instance.currentUser;
 
-    await FirebaseFirestore.instance
-        .collection('usuarios')
-        .doc(uid)
-        .update({"favoritos": livroid});
+    if (user == null) {
+      return;
+    }
+
+    final userRef =
+        FirebaseFirestore.instance.collection('usuarios').doc(user.uid);
+    final userSnapshot = await userRef.get();
+
+    if (!userSnapshot.exists) {
+      // Se o documento de usuário não existir, retorna imediatamente
+      return;
+    }
+
+    // Obtém a lista de favoritos do documento de usuário, ou uma lista vazia caso ela não exista.
+    final favoritos = List<String>.from(userSnapshot.get('favoritos') ?? []);
+
+    if (favoritos.contains(livroId)) {
+      await userRef.update({
+        'favoritos': FieldValue.arrayRemove([livroId])
+      });
+    } else {
+      await userRef.update({
+        'favoritos': FieldValue.arrayUnion([livroId])
+      });
+    }
   }
 }
