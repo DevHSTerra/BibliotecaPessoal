@@ -28,23 +28,9 @@ class ControladorDeLivros {
   Future<void> livroFavorito(String livroId) async {
     final user = FirebaseAuth.instance.currentUser;
 
-    if (user == null) {
-      return;
-    }
+    final userRef = FirebaseFirestore.instance.collection('usuarios').doc(user.uid);
 
-    final userRef =
-        FirebaseFirestore.instance.collection('usuarios').doc(user.uid);
-    final userSnapshot = await userRef.get();
-
-    if (!userSnapshot.exists) {
-      // Se o documento de usuário não existir, retorna imediatamente
-      return;
-    }
-
-    // Obtém a lista de favoritos do documento de usuário, ou uma lista vazia caso ela não exista.
-    final favoritos = List<String>.from(userSnapshot.get('favoritos') ?? []);
-
-    if (favoritos.contains(livroId)) {
+    if (await userRef.get().get('favoritos')!.contains(livroId)) {
       await userRef.update({
         'favoritos': FieldValue.arrayRemove([livroId])
       });
