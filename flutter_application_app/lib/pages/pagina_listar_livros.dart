@@ -19,7 +19,7 @@ class _PaginaLivroGeralState extends State<PaginaLivroGeral> {
   void initState() {
     super.initState();
     livros = ControladorDeLivros().listar();
-    favoritos = ControladorDeLivros().retornarLivrosFavoritos();
+    favoritos = ControladorDeLivros().iconeFavorito();
   }
 
   @override

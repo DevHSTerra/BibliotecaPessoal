@@ -2,10 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../controller/controlador_de_livros.dart';
+import 'package:flutter_application_app/pages/card_livro.dart';
 import '../suporte/suporte.dart';
 
 class WidgetMostrarLivro extends StatefulWidget {
@@ -28,6 +25,7 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
     _favoritos = widget.favoritos.toList().cast<String>();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: Auxiliar.corDeFundo,
@@ -47,7 +45,7 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
               if (dados.size > 0) {
                 return ListView.builder(
                   itemCount: dados.size,
-                  itemBuilder: (context, index) => WidgetMostrarLivro(dados.docs[index]),
+                  itemBuilder: (context, index) => CardLivros(dados.docs[index]),
                 );
               } else {
                 return Center(

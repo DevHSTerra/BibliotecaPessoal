@@ -1,15 +1,21 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
 
+import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class WidgetMostrarLivro extends StatefulWidget {
+import '../suporte/suporte.dart';
+
+class CardLivros extends StatefulWidget {
   final livro;
 
-  const WidgetMostrarLivro(this.livro, {Key? key}) : super(key: key);
+  const CardLivros(this.livro, {Key? key}) : super(key: key);
 
   @override
-  State<WidgetMostrarLivro> createState() => _WidgetMostrarLivroState();
+  State<CardLivros> createState() => _CardLivrosState();
 }
 
-class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
+class _CardLivrosState extends State<CardLivros> {
     dynamic livroDados = widget.livro.data();
     String autor = livroDados['autor'];
     String titulo = livroDados['titulo'];
@@ -63,6 +69,7 @@ class _WidgetMostrarLivroState extends State<WidgetMostrarLivro> {
                     ),
                     onPressed: () async {}),
                 IconButton(
+                    // ignore: prefer_const_constructors
                     icon: Icon(
                     Icons.download,
                     size: 20,

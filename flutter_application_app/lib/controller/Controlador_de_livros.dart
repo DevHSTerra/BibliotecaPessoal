@@ -8,7 +8,7 @@ class ControladorDeLivros {
         .orderBy('arquivo', descending: false);
   }
 
-  Future<List> retornarLivrosFavoritos() async {
+  Future<List> iconeFavorito() async {
     var uid = FirebaseAuth.instance.currentUser!.uid;
     var res;
     await FirebaseFirestore.instance
@@ -28,15 +28,16 @@ class ControladorDeLivros {
   Future<void> livroFavorito(String livroId) async {
     final user = FirebaseAuth.instance.currentUser;
 
-    final userRef = FirebaseFirestore.instance.collection('usuarios').doc(user.uid);
+    final userRef =
+        FirebaseFirestore.instance.collection('usuarios').doc(user?.uid);
 
     if (await userRef.get().get('favoritos')!.contains(livroId)) {
       await userRef.update({
-        'favoritos': FieldValue.arrayRemove([livroId])
+        'favoritos': ("livros/${FieldValue.arrayRemove([livroId])}")
       });
     } else {
       await userRef.update({
-        'favoritos': FieldValue.arrayUnion([livroId])
+        'favoritos': ("livros/${FieldValue.arrayUnion([livroId])}")
       });
     }
   }
