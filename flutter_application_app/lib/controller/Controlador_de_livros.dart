@@ -31,7 +31,7 @@ class ControladorDeLivros {
     final userRef =
         FirebaseFirestore.instance.collection('usuarios').doc(user?.uid);
 
-    if (await userRef.get().get('favoritos')!.contains(livroId)) {
+    if ((await userRef.get())['favoritos'].contains(livroId)) {
       await userRef.update({
         'favoritos': ("livros/${FieldValue.arrayRemove([livroId])}")
       });
